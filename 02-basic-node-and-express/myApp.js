@@ -9,14 +9,14 @@ let app = express();
     res.send('Hello Express');
 }) */  
 
-/* 03 - Server an HTML File*/
+/* 03 Answer - Server an HTML File*/
 app.get("/", (request, response) => { 
   const filePath = __dirname + '/views/index.html';
   console.log(filePath);
   response.sendFile(filePath);
 })
 
-/* 04 - Serve Static Assets*/
+/* 04 Answer - Serve Static Assets*/
 app.use("/public", express.static(__dirname + "/public"));
 
 
