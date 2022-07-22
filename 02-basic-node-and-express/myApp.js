@@ -1,3 +1,4 @@
+require('dotenv').config()
 let express = require('express');
 let app = express();
 
@@ -10,24 +11,28 @@ let app = express();
 }) */  
 
 /* 03 Answer - Server an HTML File*/
-app.get("/", (request, response) => { 
+/*app.get("/", (request, response) => { 
   const filePath = __dirname + '/views/index.html';
   console.log(filePath);
   response.sendFile(filePath);
-})
+})*/
 
 /* 04 Answer - Serve Static Assets*/
-app.use("/public", express.static(__dirname + "/public"));
+// app.use("/public", express.static(__dirname + "/public"));
 
 /* 05 Answer - Serve JSON on a Specific Route*/
-app.get("/json", (request, response) => {
+/*app.get("/json", (request, response) => {
   const data = {
     "message": "Hello json"
   };
   response.json(data);
-})
+})*/
 
-
+app.get("/json", (req, res) => {
+  const json = { message: "Hello json" };
+  json.message = process.env.MESSAGE_STYLE === "uppercase" ? json.message.toUpperCase() : json.message;
+  res.json(json);
+});
 
 
 
