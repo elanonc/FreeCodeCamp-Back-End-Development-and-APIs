@@ -36,13 +36,19 @@ let app = express();
 });
 */
 
-// 07 - Implement a Root-Level Request Logger Middleware
-app.use((request, response, next) => {
+// 07 Answer - Implement a Root-Level Request Logger Middleware
+/*app.use((request, response, next) => {
   console.log(`${request.method} ${request.path} - ${request.ip}`);
   next();
+});*/
+
+// 08 Answer - Chain Middleware to Create a Time Server
+app.get('/now', (request, response, next) => {
+  request.time = new Date().toString();
+  next();
+}, (request, response) => {
+  response.json({time: request.time});
 });
-
-
 
 
 
