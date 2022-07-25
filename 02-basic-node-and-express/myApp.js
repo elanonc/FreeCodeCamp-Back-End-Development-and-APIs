@@ -1,6 +1,7 @@
 require('dotenv').config()
 let express = require('express');
 let app = express();
+let bodyParser = require('body-parser');
 
 // 01 Answer - Meet the Node console
 // console.log("Hello World");
@@ -56,15 +57,13 @@ let app = express();
 })*/
 
 // 10 Answer - Get Query Parameter Input from the Client
-app.route("/name").get( (request, response) => {
+/*app.route("/name").get( (request, response) => {
   // console.log(request.query);
   response.json( { name: `${request.query.first} ${request.query.last}`} );
-})
+})*/
 
-
-
-
-
+// 11 Answer - Use body-parser to Parse POST Requests
+app.use(bodyParser.urlencoded({ extended: false }));
 
 
 
