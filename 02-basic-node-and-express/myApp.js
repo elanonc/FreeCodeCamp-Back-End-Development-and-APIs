@@ -65,8 +65,10 @@ let bodyParser = require('body-parser');
 // 11 Answer - Use body-parser to Parse POST Requests
 app.use(bodyParser.urlencoded({ extended: false }));
 
-
-
+// 12 Answer - Get Data from POST Requests
+app.route("/name").post( (request, response) => {
+  response.json( { name: `${request.body.first} ${request.body.last}`} );
+})
 
 
 
