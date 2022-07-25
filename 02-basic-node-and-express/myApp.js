@@ -43,15 +43,23 @@ let app = express();
 });*/
 
 // 08 Answer - Chain Middleware to Create a Time Server
-app.get('/now', (request, response, next) => {
+/*app.get('/now', (request, response, next) => {
   request.time = new Date().toString();
   next();
 }, (request, response) => {
   response.json({time: request.time});
-});
+});*/
 
+// 09 Answer - Get Route Parameter Input from the Client
+/*app.get("/:word/echo", (request, response) => {
+  response.json({ echo: request.params.word });
+})*/
 
-
+// 10 Answer - Get Query Parameter Input from the Client
+app.route("/name").get( (request, response) => {
+  // console.log(request.query);
+  response.json( { name: `${request.query.first} ${request.query.last}`} );
+})
 
 
 
