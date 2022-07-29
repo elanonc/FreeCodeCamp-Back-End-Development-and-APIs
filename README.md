@@ -6,3 +6,5 @@ Repositório destinado as minhas resoluções dos exercícios da trilha de certi
 
 * Node.js
 * Express.js
+* MongoDB
+* Mongoose
